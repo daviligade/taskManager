@@ -1,0 +1,36 @@
+<ion-view view-title="Tasks">
+	<ion-nav-buttons side="right">
+		<button class="button button-assertive" ng-click="showAdd()">
+		    <i class="icon ion-plus" style="padding:5px; font-size:20px; color:#ffffff;"></i>
+		</button>
+	</ion-nav-buttons>
+
+  <ion-content>
+    <ion-list>
+    	<ap-task-item></ap-task-item>
+    </ion-list>
+    <div class="row">
+	  <div class="col text-center">
+	    <div ng-show="showing" class="ng-hide">
+	    <form name="myForm" novalidate>
+		    <label class="item item-input" style="width:100%; float:left;">
+		      <input type="text" name="description" placeholder="Description" ng-model="newEvent.description" required>
+		    </label>
+		    <label class="item item-input" style="width:100%; float:left; margin-top:10px;">
+		      	<input type="date" placeholder="Date" ng-model="newEvent.due_date">
+		    </label>
+		    <button class="button button-royal" style="margin:10px;" ng-click="add()" ng-disabled="myForm.$invalid">
+		      Add
+		    </button>
+		    <div class="padding">
+	            <p ng-show="myForm.description.$error.required">* You must specify a description!</p>
+		    </div>
+		</form>
+	    </div><br />
+	    <div class="padding">
+	    	<p ng-show="!showing">(swipe left to delete tasks)</p>
+	    </div>
+	  </div>
+	</div>
+  </ion-content>
+</ion-view>
